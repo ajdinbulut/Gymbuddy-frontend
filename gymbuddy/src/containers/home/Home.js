@@ -8,8 +8,6 @@ export default function Home() {
   return (
     userStore.isAuth === false ? <div className='div2'><h1>Home</h1></div> : 
     <LGHome/>
-  
-  
   )
 }
 

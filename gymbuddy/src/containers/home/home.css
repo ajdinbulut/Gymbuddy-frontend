@@ -1,0 +1,32 @@
+.home--main{
+    width:70%;
+    height: 100%;
+    background-color: rgb(33,37,41);
+    margin: auto;
+    padding:10px;
+    margin-top:10px;
+}
+.postForm{
+    width:500px;
+    height:150px;
+    background-color: gray;
+    margin:auto;
+    border-radius:0.3rem;
+    margin-bottom: 10px;
+}
+.input--description{
+    margin:10px 10px 10px 10px;
+    width:100%;
+    padding-top:10px;
+}
+.input--description > textarea{
+    width:80%;
+}
+.input--file{
+    margin:0 10px 10px 10px;
+}
+.form--btn{
+    background-color: black;
+    color:white;
+    margin-left: 10px;
+}
