@@ -9,12 +9,18 @@ class UserStoreImpl{
         makeObservable(this,{
             isAuth:observable,
             user:observable,
-            addUser:action
+            addUser:action,
+            Logout:action
         });
     }
     addUser(addedUser){
         this.user.push(addedUser)
         this.isAuth = true;
+    }
+    Logout(){
+        localStorage.removeItem('token');
+        this.isAuth = false;
+        this.user.pop();
     }
 }
 export const UserStore = new UserStoreImpl();

@@ -4,7 +4,6 @@ import './home.css'
 import LGHome from './LoggedInHome'
 export default function Home() {
   const userStore = UserStore;
-  console.log(userStore)
   return (
     userStore.isAuth === false ? <div className='div2'><h1>Home</h1></div> : 
     <LGHome/>

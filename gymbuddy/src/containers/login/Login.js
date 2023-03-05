@@ -32,6 +32,7 @@ export default function Login() {
                     var user = jwt(token)
                     userStore.addUser(user);
                     userStore.isAuth = true;
+                    console.log(user)
                     history("/home");
                     // var btn = document.getElementById('btns')
                     // console.log(btn)

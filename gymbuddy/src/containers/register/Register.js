@@ -2,6 +2,7 @@ import React from 'react'
 import './register.css'
 import axios from 'axios'
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
 export default function Register() {
   const {
@@ -9,7 +10,7 @@ export default function Register() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  
+  const history = useNavigate();
   return (
     <div className='register'>
         <div id="container2">
@@ -25,6 +26,7 @@ export default function Register() {
               })
               .then(function (response) {
                 console.log(response);
+                history('/home')
               })
               .catch(function (error) {
                 console.log(error);
