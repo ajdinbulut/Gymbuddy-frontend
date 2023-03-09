@@ -1,6 +1,5 @@
-export {default as Administration} from './administration/Administration'
-export {default as Home} from './home/Home'
-export {default as Login} from './login/Login'
-export {default as Register} from './register/Register'
-export {default as Edit} from './edit/Edit'
-export {default as Delete} from './delete/Delete'
+export { default as Administration } from "./administration/Administration";
+export { default as Home } from "./home/Home";
+export { default as Login } from "./login/Login";
+export { default as Register } from "./register/Register";
+export { default as Edit } from "./edit/Edit";
