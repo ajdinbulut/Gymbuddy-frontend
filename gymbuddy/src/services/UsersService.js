@@ -8,15 +8,9 @@ const UsersService = {
   },
   deleteUser: async (id) => {
     console.log(id);
-    var Id = id.toString();
-    const response = await axios.post(
-      "https://localhost:7010/api/User/deleteUser",
-      Id,
-      {
-        headers: {
-          "Content-Type": "application/json; charset=utf-8",
-        },
-      }
+    const response = await axios.delete(
+      "https://localhost:7010/api/User/" + id,
+      { id }
     );
     return response.data;
   },
