@@ -10,5 +10,9 @@ const CommentsService = {
     });
     return res.data;
   },
+  get: async () => {
+    const res = await axios.get("https://localhost:7010/api/Home/get");
+    return res.data;
+  },
 };
 export default CommentsService;

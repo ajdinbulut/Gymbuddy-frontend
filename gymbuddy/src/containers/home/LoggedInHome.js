@@ -5,6 +5,7 @@ import "./home.css";
 import PostComponent from "./components/PostComponent";
 import { useNavigate } from "react-router-dom";
 import PostsService from "../../services/PostsService";
+import { PostStore } from "../../Store/PostStore/postStore";
 
 export default function LIHome() {
   const {
@@ -15,29 +16,29 @@ export default function LIHome() {
   } = useForm();
   const userStore = UserStore;
   const navigate = useNavigate();
-  const [posts, setPosts] = React.useState();
-
+  var postsStore = PostStore;
+  postsStore.posts.map((x) => {
+    console.log(x);
+  });
   useEffect(() => {
     const fetchData = async () => {
       const apiPosts = await PostsService.getAll();
-      setPosts(apiPosts);
+      postsStore.addPost(apiPosts);
     };
     fetchData();
   }, []);
-
   const onSubmit = async (data) => {
     const newPost = await PostsService.add({
       description: data.description,
       file: data.file[0],
       userId: userStore.user.Id,
     });
-    setPosts((prevPosts) => [...prevPosts, newPost]);
     reset();
     const apiPosts = await PostsService.getAll();
-    setPosts(apiPosts);
+    postsStore.addPost(apiPosts);
     navigate("/home");
   };
-
+  console.log(postsStore.posts);
   return (
     <div className="home--main">
       <div className="postForm">
@@ -54,10 +55,7 @@ export default function LIHome() {
           <button className="form--btn">Submit</button>
         </form>
       </div>
-      {posts &&
-        posts.map((post, index) => (
-          <PostComponent key={index} data={post}></PostComponent>
-        ))}
+      {postsStore.posts && postsStore.posts.map}
     </div>
   );
 }
