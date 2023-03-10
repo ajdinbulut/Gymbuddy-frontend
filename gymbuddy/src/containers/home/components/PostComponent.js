@@ -6,8 +6,6 @@ export default function PostComponent(props) {
   console.log(props);
   const submitComment = async () => {
     var commentValue = document.getElementById("comment").value;
-    console.log(commentValue);
-    console.log(UserStore.user.Id);
     const comment = await CommentsService.add({
       postId: props.data.id,
       userId: UserStore.user.Id,
@@ -18,6 +16,13 @@ export default function PostComponent(props) {
     <div className="post">
       <h2>{props.data.description}</h2>
       <img src={props.data.imageUrl} alt="Picture" width="500" />
+      {props.data.comments !== null &&
+        props.data.comments.map((x) => (
+          <div className="comment">
+            <h6>{x.user.firstName + " " + x.user.lastName}</h6>
+            <p>{x.description}</p>
+          </div>
+        ))}
       <input type="text" className="comment" id="comment" />
       <button onClick={submitComment}>Comment</button>
     </div>
