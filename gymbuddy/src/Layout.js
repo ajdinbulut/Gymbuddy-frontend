@@ -8,6 +8,7 @@ import {
   Register,
   Home,
   Edit,
+  Profile,
 } from "./containers/index";
 function Layout() {
   return (
@@ -16,6 +17,7 @@ function Layout() {
       <Routes>
         <Route path="/administration" element={<Administration />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/edit" element={<Edit />} />

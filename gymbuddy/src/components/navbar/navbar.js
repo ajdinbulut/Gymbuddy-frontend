@@ -81,7 +81,9 @@ const Navbar = observer(() => {
         </div>
       ) : (
         <NavDropdown title="Menu" id="nav-dropdown">
-          <NavDropdown.Item eventKey="4.1">Action</NavDropdown.Item>
+          <NavDropdown.Item eventKey="4.1">
+            <Link to="/profile">Profile</Link>
+          </NavDropdown.Item>
           <NavDropdown.Item eventKey="4.2">Another action</NavDropdown.Item>
           <NavDropdown.Item eventKey="4.3">
             Something else here
