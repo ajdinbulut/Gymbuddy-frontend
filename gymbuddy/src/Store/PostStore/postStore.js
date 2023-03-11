@@ -1,4 +1,5 @@
 import { action, makeObservable, observable } from "mobx";
+import PostsService from "../../services/PostsService";
 class PostStoreImpl {
   posts = [];
   constructor() {
@@ -7,9 +8,15 @@ class PostStoreImpl {
       addPost: action,
       addComment: action,
     });
+    const fetchData = async () => {
+      const apiPosts = await PostsService.getAll();
+      this.posts.push(...apiPosts);
+      console.log("lol");
+    };
+    fetchData();
   }
   addPost(obj) {
-    this.posts.push(obj);
+    this.posts.push(...obj);
   }
   addComment(comment) {
     this.posts.comments.push(comment);
