@@ -1,6 +1,4 @@
 import { action, makeObservable, observable } from "mobx";
-import PostComponent from "../../containers/home/components/PostComponent";
-
 class PostStoreImpl {
   posts = [];
   constructor() {
@@ -15,11 +13,6 @@ class PostStoreImpl {
   }
   addComment(comment) {
     this.posts.comments.push(comment);
-  }
-  mapPosts() {
-    this.posts.map((x) => {
-      return console.log(x);
-    });
   }
 }
 export const PostStore = new PostStoreImpl();
