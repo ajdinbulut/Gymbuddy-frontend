@@ -1,12 +1,19 @@
 import React from "react";
 import CommentsService from "../../../services/CommentsService";
+import { PostStore } from "../../../Store/PostStore/postStore";
 import { UserStore } from "../../../Store/UserStore/userStore";
 import "./post.css";
 export default function PostComponent(props) {
-  console.log(props);
+  var postStore = PostStore;
   const submitComment = async () => {
     var commentValue = document.getElementById("comment").value;
+    console.log("value ---> " + commentValue);
     const comment = await CommentsService.add({
+      postId: props.data.id,
+      userId: UserStore.user.Id,
+      description: commentValue,
+    });
+    postStore.addComment(props.data.id, {
       postId: props.data.id,
       userId: UserStore.user.Id,
       description: commentValue,
@@ -23,7 +30,7 @@ export default function PostComponent(props) {
             <p>{x.description}</p>
           </div>
         ))}
-      <input type="text" className="comment" id="comment" />
+      <input type="text" className="comment" data-id="comment" />
       <button onClick={submitComment}>Comment</button>
     </div>
   );
