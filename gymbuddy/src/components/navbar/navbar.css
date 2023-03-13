@@ -1,137 +1,136 @@
-nav{
-    width:100%;
-    height:70px !important;
-    display:flex;
-
+nav {
+  width: 100%;
+  height: 70px !important;
+  display: flex;
 }
 
-.active{
-    text-decoration: underline;
+.active {
+  text-decoration: underline;
 }
 
-
-.navbar--div-links{
-    flex:1;
-    display: flex;
-    color:white;
-    
+.navbar--div-links {
+  flex: 1;
+  display: flex;
+  color: white;
 }
-.navbar--div-links p:hover{
-    cursor: pointer;
-    color:#d37211;
-    text-decoration: underline;
+.navbar--div-links p:hover {
+  cursor: pointer;
+  color: #d37211;
+  text-decoration: underline;
 }
 .navbar--div-links p {
-    padding:0 2rem 0 2rem;
-    height: 100%;
-    font-family: Britannic;
-    font-size: 20px;
-    font-weight: 500;
-    letter-spacing: 0.05rem;
+  padding: 0 2rem 0 2rem;
+  height: 100%;
+  font-family: Britannic;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.05rem;
 }
-.navbar--menu{
-    margin-right:1rem;
-    display:none;
-    position: relative;
+.navbar--menu {
+  margin-right: 1rem;
+  display: none;
+  position: relative;
 }
-.navbar--menu svg{
-    cursor:pointer;
+.navbar--menu svg {
+  cursor: pointer;
 }
 .dropdown {
-    color:white;
-    background-color:rgb(4, 4, 46);
-    border:none;
-    padding:5px 10px;
-    border-radius:0.5em;
-
+  color: white;
+  background-color: rgb(4, 4, 46);
+  border: none;
+  padding: 5px 10px;
+  border-radius: 0.5em;
 }
-.dropdown:hover{
-    background-color: rgb(4, 4, 46,0.8);
-    color:rgb(184, 184, 191);
+.dropdown:hover {
+  background-color: rgb(4, 4, 46, 0.8);
+  color: rgb(184, 184, 191);
 }
-.dropdown > a{
-    margin-top:17px;
+.dropdown > a {
+  margin-top: 17px;
 }
-.btns{
-    display:block;
-    padding:15px;
+.btns {
+  display: block;
+  padding: 15px;
 }
 .btns > a {
-    margin-right:5px;
+  margin-right: 5px;
 }
-.links{
-    padding:15px;
-    color:white;
-    text-decoration: none;
+.links {
+  padding: 15px;
+  color: white;
+  text-decoration: none;
 }
-.links:hover{
-    text-decoration: underline;
-    color:grey;
+.links:hover {
+  text-decoration: underline;
+  color: grey;
 }
-.navbar--menu-container{
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    flex-direction: column;
-    text-align: end;
-    background-color: #212529;
-    padding: 2rem;
-    position: absolute;
-    top:40px;
-    right:0;
-    min-width: 210px;
-    border-radius: 5px;
-    box-shadow: 0 0 5 rgba(0,0,0, 0.2);
+.navbar--menu-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex-direction: column;
+  text-align: end;
+  background-color: #212529;
+  padding: 2rem;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  min-width: 210px;
+  border-radius: 5px;
+  box-shadow: 0 0 5 rgba(0, 0, 0, 0.2);
 }
 .navbar--menu-container-links p {
-    margin:1rem 0;
+  margin: 1rem 0;
 }
-.filtered{
-    width:400px;
-    height: 200px;
-    position:absolute;
-    background-color: white;
-    top:75px;
-    left:250px;
+.filtered {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  background-color: white;
+  top: 75px;
+  left: 250px;
+  overflow: scroll;
 }
-.ul{
-    background-color: black;
+.listItem {
+  height: 50px;
+  width: 80%;
 }
-.listItem{
-    color:white;
+.ul {
+  background-color: black;
 }
-@media screen and (max-width:1050px){
-    .navbar--div-links{
-        display:none;
-    }
-    .btns{
-        display:none;
-    }
-    .navbar--menu{
-        display:block;
-        position: relative;
-        right:-1020px;
-    }
-    .navbar--menu-container-links{
-        cursor: pointer;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 16px;
-        font-weight: 500;
-        color:white;
-    }
-    .navbar--menu-container-links :hover{
-        text-decoration: underline;
-    }
-    
+.listItem {
+  color: white;
 }
-@media screen and (max-width:700px){
-    
+@media screen and (max-width: 1050px) {
+  .navbar--div-links {
+    display: none;
+  }
+  .btns {
+    display: none;
+  }
+  .navbar--menu {
+    display: block;
+    position: relative;
+    right: -1020px;
+  }
+  .navbar--menu-container-links {
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+  }
+  .navbar--menu-container-links :hover {
+    text-decoration: underline;
+  }
 }
-@media screen and (max-width:550px){
-    .navbar--menu{
-        right:-350px;
-    }
-    .navbar--menu-container{
-        top:25px;
-    }
+@media screen and (max-width: 700px) {
+}
+@media screen and (max-width: 550px) {
+  .navbar--menu {
+    right: -350px;
+  }
+  .navbar--menu-container {
+    top: 25px;
+  }
 }

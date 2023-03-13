@@ -62,7 +62,7 @@ const Navbar = observer(() => {
               <div className="filtered">
                 <ul className="ul">
                   {filtered.map((x) => (
-                    <li classNamme="listItem">{x.userName}</li>
+                    <li className="listItem">{x.userName}</li>
                   ))}
                 </ul>
               </div>

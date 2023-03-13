@@ -4,6 +4,7 @@
   background-color: grey;
   margin: auto;
   margin-bottom: 10px;
+  overflow: scroll;
 }
 .comment {
   width: 80%;
