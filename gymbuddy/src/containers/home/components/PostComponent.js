@@ -1,23 +1,33 @@
 import React from "react";
 import CommentsService from "../../../services/CommentsService";
 import { PostStore } from "../../../Store/PostStore/postStore";
+import { useForm } from "react-hook-form";
 import { UserStore } from "../../../Store/UserStore/userStore";
 import "./post.css";
 export default function PostComponent(props) {
   var postStore = PostStore;
-  const submitComment = async () => {
-    var commentValue = document.getElementById("comment").value;
-    console.log("value ---> " + commentValue);
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = async (data) => {
     const comment = await CommentsService.add({
       postId: props.data.id,
       userId: UserStore.user.Id,
-      description: commentValue,
+      description: data.comment,
     });
     postStore.addComment(props.data.id, {
       postId: props.data.id,
       userId: UserStore.user.Id,
-      description: commentValue,
+      user: {
+        firstName: UserStore.user.FirstName,
+        lastName: UserStore.user.Lastname,
+      },
+      description: data.comment,
     });
+    reset();
   };
   return (
     <div className="post">
@@ -30,8 +40,10 @@ export default function PostComponent(props) {
             <p>{x.description}</p>
           </div>
         ))}
-      <input type="text" className="comment" data-id="comment" />
-      <button onClick={submitComment}>Comment</button>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <input {...register("comment")} type="text" />
+        <button>Comment</button>
+      </form>
     </div>
   );
 }

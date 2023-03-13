@@ -14,7 +14,6 @@ export default function LIHome() {
     };
     fetchData();
   }, []);
-  console.log(postsStore.posts);
   return (
     <div className="home--main">
       <PostForm />
