@@ -44,7 +44,7 @@ const Navbar = observer(() => {
   }
 
   return (
-    <nav className="navbar" class="bg-dark">
+    <nav className="navbar bg-dark" >
       <div className="navbar--div-links">
         <Link className="links" to="/home">
           <h4>Gymbuddy</h4>

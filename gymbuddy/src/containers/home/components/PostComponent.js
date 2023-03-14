@@ -29,10 +29,11 @@ export default function PostComponent(props) {
     });
     reset();
   };
+  console.log(props)
   return (
     <div className="post">
       <h2>{props.data.description}</h2>
-      <img src={props.data.imageUrl} alt="Picture" width="500" />
+      <img src={props.data.imageUrl} alt="Picture" width="300" height="400" />
       {props.data.comments !== null &&
         props.data.comments.map((x) => (
           <div className="comment">

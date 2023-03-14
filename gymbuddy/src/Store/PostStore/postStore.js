@@ -6,15 +6,18 @@ class PostStoreImpl {
   constructor() {
     makeObservable(this, {
       posts: observable,
-      addPost: action,
+      add: action,
       addComment: action,
+      addPostsOnLoad:action,
     });
   }
-  addPost(obj) {
+  addPostsOnLoad(obj) {
     this.posts.push(...obj);
   }
+  add(obj){
+    this.posts.push(obj)
+  }
   addComment(id, comment) {
-    console.log(UserStore.user);
     this.posts.forEach((x) => {
       return x.id === id ? x.comments.push(comment) : null;
     });

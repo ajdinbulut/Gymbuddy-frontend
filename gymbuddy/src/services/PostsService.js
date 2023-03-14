@@ -24,7 +24,7 @@ const PostsService = {
         },
       }
     );
-    return response.data;
+    return response;
   },
 };
 

@@ -4,13 +4,14 @@ import PostComponent from "./components/PostComponent";
 import { PostStore } from "../../Store/PostStore/postStore";
 import PostForm from "../../components/postForm/PostForm";
 import PostsService from "../../services/PostsService";
+import { observer } from "mobx-react";
 
-export default function LIHome() {
+const LIHome = observer((props)=> {
   var postsStore = PostStore;
   React.useEffect(() => {
     const fetchData = async () => {
       const apiPosts = await PostsService.getAll();
-      postsStore.addPost(apiPosts);
+      postsStore.addPostsOnLoad(apiPosts);
     };
     fetchData();
   }, []);
@@ -22,4 +23,5 @@ export default function LIHome() {
       })}
     </div>
   );
-}
+})
+export default LIHome;
