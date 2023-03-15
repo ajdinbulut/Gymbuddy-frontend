@@ -9,7 +9,6 @@ const PostsService = {
     );
     return response.data;
   },
-
   add: async (obj) => {
     const response = axios.post(
       "https://localhost:7010/api/Home/Post",
@@ -26,6 +25,11 @@ const PostsService = {
     );
     return response;
   },
+  getById: async (id) =>{
+    console.log(id, " profile id")
+    const response = await axios.get("https://localhost:7010/api/Profile/GetPostsById",{params:{Id:id}})
+    return response;
+  }
 };
 
 export default PostsService;

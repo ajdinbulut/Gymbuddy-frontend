@@ -3,8 +3,9 @@ import CommentsService from "../../../services/CommentsService";
 import { PostStore } from "../../../Store/PostStore/postStore";
 import { useForm } from "react-hook-form";
 import { UserStore } from "../../../Store/UserStore/userStore";
+import { observer } from "mobx-react";
 import "./post.css";
-export default function PostComponent(props) {
+const PostComponent = observer((props)=>{
   var postStore = PostStore;
   const {
     register,
@@ -47,4 +48,5 @@ export default function PostComponent(props) {
       </form>
     </div>
   );
-}
+})
+export default PostComponent;
