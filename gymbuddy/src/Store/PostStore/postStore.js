@@ -3,15 +3,12 @@ import PostsService from "../../services/PostsService";
 import { UserStore } from "../UserStore/userStore";
 class PostStoreImpl {
   posts = [];
-  userPosts = [];
   constructor() {
     makeObservable(this, {
       posts: observable,
-      userPosts: observable,
       add: action,
       addComment: action,
       addPostsOnLoad:action,
-      addUsersPost:action,
     });
   }
   addPostsOnLoad(obj) {
@@ -25,8 +22,6 @@ class PostStoreImpl {
       return x.id === id ? x.comments.push(comment) : null;
     });
   }
-  addUsersPost(obj){
-    this.userPosts.push(...obj);
-  }
+  
 }
 export const PostStore = new PostStoreImpl();

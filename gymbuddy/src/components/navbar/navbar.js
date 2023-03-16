@@ -17,7 +17,6 @@ const Navbar = observer(() => {
   const [empty, setEmpty] = useState(true);
   const userStore = UserStore;
   const navigate = useNavigate();
-  console.log(userStore);
   function Logout() {
     userStore.Logout();
     navigate("/login");

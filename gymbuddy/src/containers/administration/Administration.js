@@ -48,7 +48,7 @@ export default function Administration() {
                     ))}
                   </td>
                   <td>
-                    <Link to="/edit">Edit</Link>
+                    <Link to="/edit" state={x}>Edit</Link>
                   </td>
                   <td>
                     <button onClick={() => DeleteUser(x.id)}>Delete</button>

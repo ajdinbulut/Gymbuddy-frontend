@@ -14,5 +14,21 @@ const UsersService = {
     );
     return response.data;
   },
+  editUser: async (obj) =>{
+    console.log(obj)
+    const response = await axios.put("https://localhost:7010/api/User/Edit",{
+      Id:obj.id,
+      FirstName:obj.firstName,
+      LastName:obj.lastName,
+      UserName:obj.userName,
+      Age:obj.age,
+      Email:obj.email
+    },{
+      headers:{
+        "Content-Type" : "multipart/form-data"
+      }
+    })
+    return response.data
+  }
 };
 export default UsersService;

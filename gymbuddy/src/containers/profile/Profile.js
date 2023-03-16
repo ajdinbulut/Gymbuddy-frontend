@@ -9,21 +9,15 @@ import { UserStore } from "../../Store/UserStore/userStore";
 const Profile = observer(()=> {
   const postsStore = PostStore;
   const userStore = UserStore;
-  React.useEffect(()=>{
-    const getPosts = async() =>{
-      var res = await PostsService.getById(userStore.user.Id)
-      console.log(res.data," res data")
-      postsStore.addUsersPost(res.data);
-    }
-    getPosts();
-  },[])
-  console.log(postsStore.userPosts, " users posts")
+  console.log(userStore.user)
   return (
     <div>
-      <div className="profileHeader"></div>
+      <div className="profileHeader">
+        <img src={userStore.user.imageUrl} alt="Profile Photo"/>
+      </div>
       <PostForm />
-        {postsStore.userPosts !== undefined && postsStore.userPosts.map(x=>{
-         return <PostComponent data={x} key={x.Id}/>
+        {postsStore.posts !== undefined && postsStore.posts.map(x=>{
+         return x.userId.toString() === userStore.user.Id ? <PostComponent data={x} key={x.Id} /> : null
         })}
     </div>
   );
