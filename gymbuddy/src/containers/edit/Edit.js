@@ -2,17 +2,20 @@ import React from 'react'
 import { useLocation} from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import UsersService from '../../services/UsersService';
+import { useNavigate } from "react-router-dom";
+import "./edit.css"
 
 export default function Edit() {
   const { register, handleSubmit } = useForm();
-  var navigate = useLocation();
+  var location = useLocation();
+  var navigation = useNavigate();
   const [editUser,setEditUser] = React.useState();
   React.useEffect(()=>{
-    setEditUser(navigate.state);
+    setEditUser(location.state);
   },[])
   const onSubmit = async(data) =>{
     const apiUser = await UsersService.editUser(data);
-    console.log(apiUser)
+    navigation("/administration")
   }
   function handleChange(event){
     const {name, value} = event.target
@@ -25,25 +28,25 @@ export default function Edit() {
   }
   return (
     <div>
-      {editUser && <form onSubmit={handleSubmit(onSubmit)}>
+      {editUser && <form onSubmit={handleSubmit(onSubmit)} className="form">
         <input {...register("id")} value={editUser.id} name="id" onChange={(e)=> handleChange(e)} type="hidden"/>
-        <div>
+        <div className='div'>
           <label>Firstname:</label>
           <input {...register("firstName")} name="firstName" onChange={(e)=> handleChange(e)} value={editUser.firstName}/>
         </div>
-        <div>
+        <div className='div'>
           <label>Lastname:</label>
           <input {...register("lastName")} name="lastName" onChange={(e)=> handleChange(e)} value={editUser.lastName}/>
         </div>
-        <div>
+        <div className='div'>
           <label>Username:</label>
           <input {...register("userName")} name="userName" onChange={(e)=> handleChange(e)} value={ editUser.userName}/>
         </div>
-        <div>
+        <div className='div'>
           <label>Age:</label>
           <input {...register("age")} name="age" onChange={(e)=> handleChange(e)} value={editUser.age}/>
         </div>
-        <div>
+        <div className='div'>
           <label>Email:</label>
           <input {...register("email")} name="email" onChange={(e)=> handleChange(e)} value={editUser.email}/>
         </div>

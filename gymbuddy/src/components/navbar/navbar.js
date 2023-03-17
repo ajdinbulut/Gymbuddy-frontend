@@ -56,12 +56,12 @@ const Navbar = observer(() => {
             <Link className="links" to="/administration">
               Administration
             </Link>
-            <input type="text" onChange={(e) => handleChange(e)} />
+            <input type="text" onChange={(e) => handleChange(e)} className="search"/>
             {empty === false && (
               <div className="filtered">
                 <ul className="ul">
                   {filtered.map((x) => (
-                    <li className="listItem">{x.userName}</li>
+                    <Link to="/searchProfile" className="listItem">{x.userName}</Link>
                   ))}
                 </ul>
               </div>

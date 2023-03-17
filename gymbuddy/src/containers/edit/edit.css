@@ -1,0 +1,21 @@
+.div{
+    height:70px;
+    background-color: grey;
+    color:white;
+    border:1px solid black;
+    border-radius:0.25rem;
+}
+.form{
+    width:500px;
+    height:fit-content;
+    margin:auto;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+.form > button{
+    background-color: brown;
+    color:cadetblue;
+    margin-left:220px;
+    width:70px;
+    height:50px;
+}
