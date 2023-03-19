@@ -4,9 +4,13 @@ import { PostStore } from "../../../Store/PostStore/postStore";
 import { useForm } from "react-hook-form";
 import { UserStore } from "../../../Store/UserStore/userStore";
 import { observer } from "mobx-react";
+import PostsService from "../../../services/PostsService"
+
 import "./post.css";
 const PostComponent = observer((props)=>{
+  console.log(props.data)
   var postStore = PostStore;
+  const userStore = UserStore;
   const {
     register,
     handleSubmit,
@@ -30,7 +34,10 @@ const PostComponent = observer((props)=>{
     });
     reset();
   };
-  console.log(props)
+  const LikeButton = async () =>{
+    var apiLikePost = await PostsService.LikePost(userStore.user.Id,props.data.id)
+    console.log(apiLikePost);
+  }
   return (
     <div className="post">
       <h2>{props.data.description}</h2>
@@ -42,6 +49,7 @@ const PostComponent = observer((props)=>{
             <p>{x.description}</p>
           </div>
         ))}
+        <button onClick={LikeButton}>Like</button>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input {...register("comment")} type="text" />
         <button>Comment</button>

@@ -25,9 +25,14 @@ const PostsService = {
     );
     return response;
   },
-  getById: async (id) =>{
+  getById: async (id) => {
     console.log(id, " profile id")
     const response = await axios.get("https://localhost:7010/api/Profile/GetPostsById",{params:{Id:id}})
+    return response;
+  },
+  LikePost: async (userId,postId) => {
+    console.log(userId,postId," inside service ")
+    const response = await axios.put("https://localhost:7010/api/Home/LikePost",{UserId:userId,PostId:postId})
     return response;
   }
 };

@@ -61,7 +61,7 @@ const Navbar = observer(() => {
               <div className="filtered">
                 <ul className="ul">
                   {filtered.map((x) => (
-                    <Link to="/searchProfile" className="listItem">{x.userName}</Link>
+                    <Link to="/searchProfile" state={x} className="listItem">{x.userName}</Link>
                   ))}
                 </ul>
               </div>

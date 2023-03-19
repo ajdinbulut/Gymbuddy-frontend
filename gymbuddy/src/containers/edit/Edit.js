@@ -9,6 +9,7 @@ export default function Edit() {
   const { register, handleSubmit } = useForm();
   var location = useLocation();
   var navigation = useNavigate();
+  console.log(location.state)
   const [editUser,setEditUser] = React.useState();
   React.useEffect(()=>{
     setEditUser(location.state);
@@ -30,23 +31,23 @@ export default function Edit() {
     <div>
       {editUser && <form onSubmit={handleSubmit(onSubmit)} className="form">
         <input {...register("id")} value={editUser.id} name="id" onChange={(e)=> handleChange(e)} type="hidden"/>
-        <div className='div'>
+        <div className='edit--div'>
           <label>Firstname:</label>
           <input {...register("firstName")} name="firstName" onChange={(e)=> handleChange(e)} value={editUser.firstName}/>
         </div>
-        <div className='div'>
+        <div className='edit--div'>
           <label>Lastname:</label>
           <input {...register("lastName")} name="lastName" onChange={(e)=> handleChange(e)} value={editUser.lastName}/>
         </div>
-        <div className='div'>
+        <div className='edit--div'>
           <label>Username:</label>
           <input {...register("userName")} name="userName" onChange={(e)=> handleChange(e)} value={ editUser.userName}/>
         </div>
-        <div className='div'>
+        <div className='edit--div'>
           <label>Age:</label>
           <input {...register("age")} name="age" onChange={(e)=> handleChange(e)} value={editUser.age}/>
         </div>
-        <div className='div'>
+        <div className='edit--div'>
           <label>Email:</label>
           <input {...register("email")} name="email" onChange={(e)=> handleChange(e)} value={editUser.email}/>
         </div>
