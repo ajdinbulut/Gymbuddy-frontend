@@ -1,8 +1,9 @@
 import axios from "axios";
 const PostsService = {
-  getAll: async () => {
+  getAll: async (id) => {
+    console.log(id)
     const response = await axios.get(
-      "https://localhost:7010/api/Home/GetPosts",
+      "https://localhost:7010/api/Home/GetPosts",{params:{Id:id}},
       {
         headers: { Authorization: "Bearer " + localStorage.getItem("token") },
       }
@@ -26,7 +27,6 @@ const PostsService = {
     return response;
   },
   getById: async (id) => {
-    console.log(id, " profile id")
     const response = await axios.get("https://localhost:7010/api/Profile/GetPostsById",{params:{Id:id}})
     return response;
   },
