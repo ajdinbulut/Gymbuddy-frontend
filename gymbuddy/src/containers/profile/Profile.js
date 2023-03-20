@@ -9,7 +9,6 @@ import { UserStore } from "../../Store/UserStore/userStore";
 const Profile = observer(()=> {
   const postsStore = PostStore;
   const userStore = UserStore;
-  console.log(userStore.user)
   return (
     <div>
       <div className="profileHeader">

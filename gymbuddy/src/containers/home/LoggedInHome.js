@@ -5,13 +5,16 @@ import { PostStore } from "../../Store/PostStore/postStore";
 import PostForm from "../../components/postForm/PostForm";
 import PostsService from "../../services/PostsService";
 import { observer } from "mobx-react";
+import { UserStore } from "../../Store/UserStore/userStore";
 
 const LIHome = observer((props)=> {
   var postsStore = PostStore;
+  var userStore = UserStore;
   React.useEffect(() => {
     const fetchData = async () => {
-      const apiPosts = await PostsService.getAll();
+      const apiPosts = await PostsService.getAll(userStore.user.Id);
       postsStore.addPostsOnLoad(apiPosts);
+      console.log(apiPosts)
     };
     fetchData();
   }, []);
