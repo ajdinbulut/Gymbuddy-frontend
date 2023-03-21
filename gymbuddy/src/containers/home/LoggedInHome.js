@@ -13,7 +13,7 @@ const LIHome = observer((props)=> {
   React.useEffect(() => {
     const fetchData = async () => {
       const apiPosts = await PostsService.getAll(userStore.user.Id);
-      postsStore.addPostsOnLoad(apiPosts);
+      postsStore.addPostsOnLoad(apiPosts.posts);
       console.log(apiPosts)
     };
     fetchData();

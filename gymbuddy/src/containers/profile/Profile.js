@@ -9,6 +9,14 @@ import { UserStore } from "../../Store/UserStore/userStore";
 const Profile = observer(()=> {
   const postsStore = PostStore;
   const userStore = UserStore;
+  React.useEffect(()=>{
+    const apiCall = async () =>{
+      const res = await PostsService.getById(userStore.user.Id);
+      return res;
+    }
+    apiCall();
+    
+  },[])
   return (
     <div>
       <div className="profileHeader">

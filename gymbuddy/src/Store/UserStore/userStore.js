@@ -14,6 +14,7 @@ class UserStoreImpl{
         });
     }
     addUser(addedUser){
+        console.log(addedUser)
         this.user.push(addedUser)
         this.isAuth = true;
     }

@@ -1,12 +1,8 @@
 import axios from "axios";
 const PostsService = {
   getAll: async (id) => {
-    console.log(id)
     const response = await axios.get(
-      "https://localhost:7010/api/Home/GetPosts",{params:{Id:id}},
-      {
-        headers: { Authorization: "Bearer " + localStorage.getItem("token") },
-      }
+      "https://localhost:7010/api/Home/GetPosts",{ params: { Id: id }}
     );
     return response.data;
   },

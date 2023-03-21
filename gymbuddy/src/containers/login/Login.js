@@ -34,13 +34,7 @@ export default function Login() {
                     userStore.isAuth = true;
                     console.log(user)
                     history("/home");
-                    // var btn = document.getElementById('btns')
-                    // console.log(btn)
-                    // btn.style.display = 'none';
                   })
-                  .catch(function (error) {
-                    console.log(error);
-                  });
                 })}>
                 <div id="userName">
                     <input {...register('username')} type="text" placeholder="Username"/>

@@ -35,7 +35,7 @@ const PostComponent = observer((props)=>{
     reset();
   };
   const LikeButton = async () =>{
-    var apiLikePost = await PostsService.LikePost(userStore.user.Id,props.data.id)
+    var apiLikePost = await PostsService.LikePost(userStore.user.Id,props.data.postId)
     console.log(apiLikePost);
   }
   return (
