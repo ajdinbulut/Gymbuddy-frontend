@@ -36,7 +36,7 @@ const PostComponent = observer((props)=>{
   };
   const LikeButton = async () =>{
     var apiLikePost = await PostsService.LikePost(userStore.user.Id,props.data.postId)
-    console.log(apiLikePost);
+    postStore.Like(props.data.postId);
   }
   return (
     <div className="post">
@@ -49,7 +49,7 @@ const PostComponent = observer((props)=>{
             <p>{x.description}</p>
           </div>
         ))}
-        <button onClick={LikeButton}>Like</button>
+        <button onClick={LikeButton} className={props.data.isLiked ? "liked" : "like"}>{props.data.isLiked ? "Liked" : "Like"}</button>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input {...register("comment")} type="text" />
         <button>Comment</button>

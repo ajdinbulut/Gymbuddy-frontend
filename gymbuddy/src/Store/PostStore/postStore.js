@@ -9,6 +9,7 @@ class PostStoreImpl {
       add: action,
       addComment: action,
       addPostsOnLoad:action,
+      Like:action,
     });
   }
   addPostsOnLoad(obj) {
@@ -20,6 +21,13 @@ class PostStoreImpl {
   addComment(id, comment) {
     this.posts.forEach((x) => {
       return x.id === id ? x.comments.push(comment) : null;
+    });
+  }
+  Like(id){
+    console.log(id)
+    console.log(this.posts);
+    this.posts.forEach((x) => {
+      return x.postId === id ? x.isLiked = !x.isLiked : null;
     });
   }
   
