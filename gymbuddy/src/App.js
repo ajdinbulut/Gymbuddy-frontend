@@ -1,13 +1,17 @@
 import './App.css';
 import Layout from './Layout';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {HubConnectionBuilder,LogLevel} from '@microsoft/signalr'
+import {HttpTransportType, HubConnectionBuilder,LogLevel} from '@microsoft/signalr'
 import React from 'react'
 export default function App() {
+  const token = localStorage.getItem('token');
   React.useEffect(()=>{
     try{
       const connection = new HubConnectionBuilder()
-    .withUrl("https://localhost:7010/chatHub")
+    .withUrl("https://localhost:7010/hub/chatHub",{
+      skipNegotiation:true,
+      transport:HttpTransportType.WebSockets,
+      accessTokenFactory:() => token,})
     .configureLogging(LogLevel.Information)
     .build();
     connection.start();

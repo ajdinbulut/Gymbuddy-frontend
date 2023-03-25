@@ -10,6 +10,7 @@ import {
   Edit,
   Profile,
   SearchProfile,
+  Chat
 } from "./containers/index";
 function Layout() {
   return (
@@ -23,6 +24,7 @@ function Layout() {
         <Route path="/register" element={<Register />} />
         <Route path="/edit" element={<Edit />} />
         <Route path="/searchProfile" element={<SearchProfile />} />
+        <Route path="/chat" element={<Chat />} />
       </Routes>
     </>
   );
