@@ -1,11 +1,19 @@
 import React from 'react'
 import { Link, useLocation} from 'react-router-dom';
-
+import ChatService from '../../services/ChatService';
+import { UserStore } from '../../Store/UserStore/userStore';
+import './chat.css'
 export default function Chat() {
-    var location = useLocation();
-    console.log(location.state)
+    const data = useLocation();
+    const userStore = UserStore;
+    const [chat,setChat] = React.useState();
+    React.useEffect(()=>{
+      const apiCall = ChatService.getChat(userStore.user.Id,data.state.id)
+    },[])
   return (
-    <div>Chat</div>
+    <div className='chatBox'>
+
+    </div>
   )
 }
 
