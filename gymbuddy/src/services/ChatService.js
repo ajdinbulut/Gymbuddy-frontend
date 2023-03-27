@@ -5,6 +5,14 @@ const ChatService = {
                 headers: 
                 { 'Content-Type': 'application/json' } });
         return response.data;
+    },
+    add: async(obj)=>{
+        console.log(obj);
+        const response = await axios.post("https://localhost:7010/api/Chat/add",{
+            UserSender:obj.userSender,
+            UserReceiver:obj.userReceiver,
+            Message:obj.message
+        })
     }   
 }
 export default ChatService

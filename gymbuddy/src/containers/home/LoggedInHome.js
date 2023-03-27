@@ -17,7 +17,6 @@ const LIHome = observer((props)=> {
     };
     fetchData();
   }, []);
-  console.log(postsStore.posts)
   return (
     <div className="home--main">
       <PostForm />

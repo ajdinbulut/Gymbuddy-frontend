@@ -8,7 +8,7 @@ import PostsService from "../../../services/PostsService"
 
 import "./post.css";
 const PostComponent = observer((props)=>{
-  console.log(props.data)
+  console.log(props," props")
   var postStore = PostStore;
   const userStore = UserStore;
   const {
@@ -19,12 +19,12 @@ const PostComponent = observer((props)=>{
   } = useForm();
   const onSubmit = async (data) => {
     const comment = await CommentsService.add({
-      postId: props.data.id,
+      postId: props.data.postId,
       userId: UserStore.user.Id,
       description: data.comment,
     });
     postStore.addComment(props.data.id, {
-      postId: props.data.id,
+      postId: props.data.postId,
       userId: UserStore.user.Id,
       user: {
         firstName: UserStore.user.FirstName,
@@ -44,9 +44,9 @@ const PostComponent = observer((props)=>{
       <img src={props.data.imageUrl} alt="Picture" width="300" height="400" />
       {props.data.comments !== null &&
         props.data.comments.map((x) => (
-          <div className="comment">
-            <h6>{x.user.firstName + " " + x.user.lastName}</h6>
-            <p>{x.description}</p>
+          <div key={x.Id} className="comment">
+            <h6 key={x.Id}>{x.user.firstName + " " + x.user.lastName}</h6>
+            <p key={x.Id}>{x.description}</p>
           </div>
         ))}
         <button onClick={LikeButton} className={props.data.isLiked ? "liked" : "like"}>{props.data.isLiked ? "Liked" : "Like"}</button>

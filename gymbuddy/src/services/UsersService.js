@@ -1,9 +1,17 @@
 import axios from "axios";
+const token = localStorage.getItem("token");
 const UsersService = {
   getAll: async () => {
     const response = await axios.get(
-      "https://localhost:7010/api/Administration/getUsers"
-    );
+      "https://localhost:7010/api/Administration/getUsers",{
+        headers: {
+          "Authorization " : `Bearer ${token}`
+        }
+      }
+    ).catch((err)=>{
+      console.log(err);
+    })
+    console.log(response)
     return response.data;
   },
   deleteUser: async (id) => {
