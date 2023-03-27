@@ -5,8 +5,9 @@ import jwt from 'jwt-decode'
 import { useForm } from 'react-hook-form';
 import { useNavigate } from "react-router-dom";
 import { UserStore } from '../../Store/UserStore/userStore';
+import { observer } from "mobx-react";
 
-export default function Login() {
+const Login = observer(() => {
     const {
         register,
         handleSubmit,
@@ -14,7 +15,6 @@ export default function Login() {
       } = useForm();
     const userStore = UserStore;
     const history = useNavigate()
-    console.log(userStore)
   return (
         <div id="container">
             <div id="log">
@@ -32,7 +32,6 @@ export default function Login() {
                     var user = jwt(token)
                     userStore.addUser(user);
                     userStore.isAuth = true;
-                    console.log(user)
                     history("/home");
                   })
                 })}>
@@ -49,4 +48,5 @@ export default function Login() {
 
         </div>
   )
-}
+})
+export default Login;
