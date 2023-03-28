@@ -8,11 +8,13 @@ import { useForm } from "react-hook-form";
 export default function Chat() {
     const {state} = useLocation();
     const userStore = UserStore;
-    console.log(state.id);
-    const [chat,setChat] = React.useState();
+    const [chat,setChat] = React.useState([]);
     React.useEffect(()=>{
-      const apiCall = ChatService.getChat(userStore.user.Id,state.id)
+      const fetchData = async () =>{
+        const apiCall = await ChatService.getChat(userStore.user.Id,state.id);
       setChat(apiCall);
+      }
+      fetchData();
     },[])
     const {
       register,
@@ -20,6 +22,7 @@ export default function Chat() {
       reset,
       formState: { errors },
     } = useForm();
+    console.log(chat)
     const onSubmit = async (data) =>{
       const SendMessage = await ChatService.add({
         userSender:userStore.user.Id,
@@ -29,10 +32,18 @@ export default function Chat() {
     }
   return (
     <div className='chatBox'>
-      
+      {chat != undefined && chat.map(x=>{
+        return(
+          <div className='message'>
+            <h5>{x.userSender.firstName + " " + x.userSender.lastName}</h5>
+            <hr/>
+            <span>{x.message}</span>
+          </div>
+        )
+      })}
       <form onSubmit={handleSubmit(onSubmit)}>
         <input {...register("chat")} type="text" />
-        <button>Comment</button>
+        <button>Send</button>
       </form>
     </div>
   )

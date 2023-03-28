@@ -4,3 +4,12 @@
     background-color: green;
     margin:auto;
 }
+.message{
+    background-color: grey;
+    width: 70%;
+    height: 100px;
+    border-radius: 0.25rem;
+    margin: 10px;
+    padding: 10px;
+
+}
