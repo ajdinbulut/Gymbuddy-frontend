@@ -29,6 +29,13 @@ export default function Chat() {
         userReceiver:state.id,
         message:data.chat
       })
+      console.log(SendMessage)
+      setChat(prev=>{
+        return[
+          ...prev,
+          SendMessage
+          ]
+      })
     }
   return (
     <div className='chatBox'>

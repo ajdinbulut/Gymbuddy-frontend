@@ -3,6 +3,7 @@
     height: 500px;
     background-color: green;
     margin:auto;
+    overflow: scroll;
 }
 .message{
     background-color: grey;
