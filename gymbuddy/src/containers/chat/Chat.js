@@ -4,6 +4,7 @@ import ChatService from '../../services/ChatService';
 import { UserStore } from '../../Store/UserStore/userStore';
 import './chat.css'
 import { useForm } from "react-hook-form";
+import { HubConnectionBuilder} from '@microsoft/signalr'
 
 export default function Chat() {
     const {state} = useLocation();
@@ -24,16 +25,23 @@ export default function Chat() {
     } = useForm();
     console.log(chat)
     const onSubmit = async (data) =>{
-      const SendMessage = await ChatService.add({
+      var obj = {
         userSender:userStore.user.Id,
         userReceiver:state.id,
         message:data.chat
-      })
-      console.log(SendMessage)
+      }
+      const SendMessage = await ChatService.add(obj)
+      console.log(SendMessage);
+      const connection = new HubConnectionBuilder()
+    .withUrl("https://localhost:7010/hub/chatHub");
+    connection.invoke("SendToUser", SendMessage.connectionId, obj.message).then(function () {
+    }).catch(function (err) {
+        return console.error(err.toString());
+    });
       setChat(prev=>{
         return[
           ...prev,
-          SendMessage
+          SendMessage.chat
           ]
       })
     }
