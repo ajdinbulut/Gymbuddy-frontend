@@ -13,7 +13,7 @@ const ChatService = {
             UserReceiver:obj.userReceiver,
             Message:obj.message
         })
-        return response.data
+        return response.data 
     }   
 }
 export default ChatService
