@@ -2,7 +2,7 @@ import axios from "axios";
 
 const CommentsService = {
   add: async (obj) => {
-    const res = axios.post("https://localhost:7010/api/Home/Comment", {
+    const res = axios.post("https://gymbuddy-backend.azurewebsites.net/api/Home/Comment", {
       Description: obj.description,
       UserId: obj.userId,
       PostId: obj.postId,
@@ -10,7 +10,7 @@ const CommentsService = {
     return res.data;
   },
   get: async () => {
-    const res = await axios.get("https://localhost:7010/api/Home/get");
+    const res = await axios.get("https://gymbuddy-backend.azurewebsites.net/api/Home/get");
     return res.data;
   },
 };

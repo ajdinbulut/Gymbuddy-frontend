@@ -3,7 +3,7 @@ const token = localStorage.getItem("token");
 const UsersService = {
   getAll: async () => {
     const response = await axios.get(
-      "https://localhost:7010/api/Administration/getUsers",{
+      "https://gymbuddy-backend.azurewebsites.net/api/Administration/getUsers",{
         headers: {
           "Authorization " : `Bearer ${token}`
         }
@@ -17,14 +17,14 @@ const UsersService = {
   deleteUser: async (id) => {
     console.log(id);
     const response = await axios.delete(
-      "https://localhost:7010/api/User/" + id,
+      "https://gymbuddy-backend.azurewebsites.net/api/User/" + id,
       { id }
     );
     return response.data;
   },
   editUser: async (obj) =>{
     console.log(obj)
-    const response = await axios.put("https://localhost:7010/api/User/Edit",{
+    const response = await axios.put("https://gymbuddy-backend.azurewebsites.net/api/User/Edit",{
       Id:obj.id,
       FirstName:obj.firstName,
       LastName:obj.lastName,

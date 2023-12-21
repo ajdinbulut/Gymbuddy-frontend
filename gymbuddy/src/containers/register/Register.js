@@ -19,7 +19,7 @@ export default function Register() {
             </div>
             <form onSubmit={handleSubmit((data) => {
               console.log()
-              axios.post('https://localhost:7010/api/User/register-user',{...data},{
+              axios.post('https://gymbuddy-backend.azurewebsites.net/api/User/register-user',{...data},{
                 headers:{
                   'Content-Type': 'multipart/form-data'
                 }

@@ -33,7 +33,7 @@ export default function Chat() {
       const SendMessage = await ChatService.add(obj)
       console.log(SendMessage);
       const connection = new HubConnectionBuilder()
-    .withUrl("https://localhost:7010/hub/chatHub");
+    .withUrl("https://gymbuddy-backend.azurewebsites.net/hub/chatHub");
     connection.invoke("SendToUser", SendMessage.connectionId, obj.message).then(function () {
     }).catch(function (err) {
         return console.error(err.toString());

@@ -21,7 +21,7 @@ const Login = observer(() => {
                 <h1>LOGIN</h1>
             </div>
             <form onSubmit={handleSubmit((data) => {
-                  axios.post('https://localhost:7010/api/User/login',{...data},{
+                  axios.post('https://gymbuddy-backend.azurewebsites.net/api/User/login',{...data},{
                     headers:{
                       'Content-Type': 'multipart/form-data'
                     }

@@ -26,7 +26,7 @@ const Navbar = observer(() => {
     if (value !== "") {
       axios
         .get(
-          "https://localhost:7010/api/Home/getFilteredUsers",
+          "https://gymbuddy-backend.azurewebsites.net/api/Home/getFilteredUsers",
           { params: { search: value } },
           {}
         )

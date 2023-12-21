@@ -8,7 +8,7 @@ export default function App() {
   React.useEffect(()=>{
     try{
       const connection = new HubConnectionBuilder()
-    .withUrl("https://localhost:7010/hub/chatHub",{
+    .withUrl("https://gymbuddy-backend.azurewebsites.net/hub/chatHub",{
       skipNegotiation:true,
       transport:HttpTransportType.WebSockets,
       accessTokenFactory:() => token,})
